@@ -1,4 +1,5 @@
 # Twitter BOT for ads
+![Alt Text](https://github.com/klemonade/nana-love-ads-twitter/blob/master/readme/example.png?raw=true)
 ### Set up
 - apply for **Twitter Developer Account** (for reason just put educational purpose) read more [here](https://developer.twitter.com/en/docs/twitter-api/getting-started/getting-access-to-the-twitter-api)
 - (optional) set up discord webhook. [how](https://support.discord.com/hc/en-us/articles/228383668-Intro-to-Webhooks)
@@ -53,3 +54,5 @@ In cron job file, put this at the bottom
 - [Twitter Developer Docs](https://developer.twitter.com/en/docs/twitter-api)
 - [Nana CGM48 Social](https://nanapenpichaya.vercel.app/social)
 - [Nana Love Ads Full version](https://www.tiktok.com/@nana.cgm48official/video/7365116235329195272)
+
+![Alt Text](https://github.com/klemonade/nana-love-ads-twitter/blob/master/readme/nana-love-ads.gif?raw=true)
