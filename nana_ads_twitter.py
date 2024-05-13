@@ -128,6 +128,7 @@ if __name__ == '__main__':
             break
         except Exception as e:
             discord = Discord(url=SHIT_HOOK)
+            date = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
             logging.error(f'Error: {e}')
             discord.post(embeds=[
                 {

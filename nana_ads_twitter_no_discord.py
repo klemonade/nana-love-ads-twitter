@@ -50,7 +50,7 @@ if __name__ == '__main__':
         exit()
     if RANDOM_TIME_ENABLED:
         # Tweet instantly -> wait for x minutes first
-        random_sleep = randint(0, SLEEP_MINUTES) * 60 * 10
+        random_sleep = randint(0, SLEEP_MINUTES) * 60
         logging.info('Sleep for %s minutes', SLEEP_MINUTES)
         sleep(random_sleep)
     while True:
