@@ -17,7 +17,9 @@ from random import randint
 from time import sleep
 import os
 from dotenv import load_dotenv
+import logging
 
+logging.basicConfig(format='[%(asctime)s]: %(message)s', datefmt='%Y-%m-%d %H:%M:%S', level=logging.INFO)
 load_dotenv()
 
 
@@ -49,6 +51,7 @@ if __name__ == '__main__':
     if RANDOM_TIME_ENABLED:
         # Tweet instantly -> wait for x minutes first
         random_sleep = randint(0, SLEEP_MINUTES) * 60
+        logging.info('Sleep for %s minutes', SLEEP_MINUTES)
         sleep(random_sleep)
     while True:
         try:
@@ -62,7 +65,6 @@ if __name__ == '__main__':
             for _ in range(10):
                 try:
                     now = datetime.now()
-                    date = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
                     formatted_time = now.strftime("%H:%M")
 
                     tweet_text = ""
@@ -88,23 +90,19 @@ if __name__ == '__main__':
                         is_failed = True
                     break
                 except Exception as e:
-                    print(f'[{date}]: Error: {e}')
+                    logging.error(f'Error: {e}')
                     sleep(10)
                     pass
             if is_failed:
-                date = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-                print(f"[{date}]: Failed to post tweet. Possibly rate limited")
+                logging.error(f'Failed to post tweet. Possibly rate limited')
                 break
             try:
-                date = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-                print(f"[{date}]: Tweet is posted")
-                print(
-                    f"[{date}]: URL: https://twitter.com/{ACCOUNT_NAME}/status/{tweet_id}")
+                logging.info('Tweet is posted')
+                logging.info(
+                    f"URL: https://twitter.com/user/status/{tweet_id}")
             except Exception as e:
-                date = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-                print(f"[{date}]: Error: {e}")
+                logging.error(f'Error: {e}')
             break
-        except Exception as e:
-            date = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-            print(f"[{date}]: Error: {e}")
+        except Exception as e:            
+            logging.error(f'Error: {e}')
             break
